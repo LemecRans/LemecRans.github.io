@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" ng-app style="overflow: hidden;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Signalement : Admin </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body style="overflow: hidden;" ng-controller="signalement">
+    <div class="wrapper fixed__footer">
+        <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;color: white;">
+            <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px; color:white;">
+                <img src="images/logo/logo.png" width="100%">
+                <hr>
+                <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">liste des Signalements</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Carte.html">Carte</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
+            </div>
+            <div class="container">
+                <div class="row"><div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.6);padding: 50px; color:white;">
+                		<h2 style="color:white;">Les Signalements</h2>
+                            <hr>
+                            <div style="overflow:scroll; width: 100%; height: 400px;">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr style="color: white;text-align: center;">
+                                            <th scope="col">id</th>
+                                            <th scope="col">Problème</th>
+                                            <th scope="col">Descrition</th>
+                                            <th scope="col">Region</th>
+                                            <th scope="col">Statut</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="signaux in listeSignalement">
+                                            <th scope="row">{{signaux.idSignalement}}</th>
+                                            <td>{{signal.designationProbleme}}</td>
+                                            <td>{{signal.descriptionProbleme}} </td>
+                                            <td>{{signal.designationRegion}} </td>
+                                            <td>{{signal.designationStatut}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+	     			</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+<script src="./angular/angular.min.js"></script>
+<script src="./controler/controler.js"></script>
+<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>

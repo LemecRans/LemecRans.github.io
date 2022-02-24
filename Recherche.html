@@ -1,0 +1,98 @@
+<!doctype html>
+<html class="no-js" ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@pitao : Recherche </title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body style="background-color:dark;overflow:hidden;" ng-controller="controlRecherche">
+    <div class="wrapper fixed__footer">
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;color: white;">
+            <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px; color:white;">
+                <img src="images/logo/logo.png" width="100%">
+                <hr>
+                <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="GUtilisateur.html">Liste Utilisateur</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">Gestion Signalement</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Region.html">Gestion Region</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Start Left Feature -->
+                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <!-- Start Slider Area -->
+                        <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.6);padding: 50px; color:white;">
+                            <h2 style="color:white;">Recherche</h2>
+                            <hr>
+                            <form action="resultat.html" method="POST" style="border:solid 2px white;width:400px;float:left;min-height: 150px;padding: 5px;">
+                                <h4>Recherche</h4>
+                                <hr>
+                                <h4>Problème :<input type="text" ng-model="recherche" style="color:black;"></h4>
+                                <button type="button" class="btn btn-primary" ng-click="listeRechercheProbleme()">Rechercher</button>
+                                <hr>
+                                <p>
+                                    Problème
+                                    <select style="color:black" id="bleme" ng-model="bleme">
+                                        <option value="">Select one</option>
+                                        <option ng-repeat="probleme in listeProb" value="{{probleme.designationProbleme}}"> {{probleme.designationProbleme}}</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    Region
+                                    <select style="color:black" id="region" ng-model="region">
+                                        <option value="">Select one</option>
+                                        <option ng-repeat="region in listeRegion" value="{{region.designationRegion}}"> {{region.designationRegion}}</option>
+                                    </select>
+                                </p>
+                                <p>
+                                    Statut
+                                    <select style="color:black" id="stat" ng-model="stat">
+                                        <option value="">Select one</option>
+                                        <option ng-repeat="statut in listeStatut" value="{{statut.etatStatut}}"> {{statut.etatStatut}}</option>
+                                    </select>
+                                </p>
+
+                                <button type="button" class="btn btn-primary" ng-click="listeRecherchePro()">Rechercher</button>
+                            </form>
+                            <div style="overflow:scroll ;height: 400px;">
+                                <table class="table" style="width: 400px; float:right">
+                                    <thead class="thead-dark">
+                                        <tr style="background-color:#303030;color: white;text-align: center;">
+                                            <th scope="col">Problème</th>
+                                            <th scope="col">Region</th>
+                                            <th scope="col">Statut</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="probleme in listeProbleme">
+                                            <th scope="row">{{probleme.designationProbleme}}</th>
+                                            <td>{{probleme.region}}</td>
+                                            <td>{{probleme.statut}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+<script src="./angular/angular.min.js"></script>
+<script src="./controler/controler.js"></script>

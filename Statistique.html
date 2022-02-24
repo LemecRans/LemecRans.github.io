@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js" ng-app ng-controller="controlStat">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Signalement : Admin </title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/apexcharts.min.js"></script>
+    <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body style="background-color:dark; overflow:hidden;" ng-controller="controlStat">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper fixed__footer">
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;color: white;">
+            <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px; color:white;">
+                <img src="images/logo/logo.png" width="100%">
+                <hr>
+                <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="GUtilisateur.html">Liste Utilisateur</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">Gestion Signalement</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Region.html">Gestion Region</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Start Left Feature -->
+                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <!-- Start Slider Area -->
+                        <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.6);padding: 50px; color:white;">
+                            <h2 style="color:white;">Statistique</h2>
+                            <hr>
+                            <form style="border:solid 2px white;width:40%;float:left;min-height: 20%;padding: 10px;margin-left: 10%;">
+                                <h2>Statistique Globale</h2>
+                                <button type="button" class="btn btn-primary" ng-click="chart1()" data-toggle="modal" data-target="#global" title="Quick View" class="quick-view modal-view detail-link" href="#">voir</button>
+                            </form>
+                            <form style="border:solid 2px white;width:40%;float:left;min-height: 20%;padding: 10px;margin-left: 10%;">
+                                <h2>Statistique par Region</h2>
+                                <button type="button" class="btn btn-primary" ng-click="affichageStatistique()" data-toggle="modal" data-target="#parRegion" title="Quick View" class="quick-view modal-view detail-link" href="#">voir</button>
+                            </form>
+                            <form style="border:solid 2px white;width:40%;float:left;min-height: 20%;padding: 10px;margin-left: 10%;margin-top:10%; ">
+                                <h2>Statistique par Statut</h2>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#test" title="Quick View" class="quick-view modal-view detail-link" href="#">voir</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="quickview-wrapper" style="width: 800px;margin: 0px auto;">
+        <!-- Modal -->
+        <div class="modal fade" id="global" tabindex="-1" role="dialog" style="width: 800px;margin: 0px auto;">
+            <div class="modal-dialog modal__container" role="document" style="width: 800px;margin: 0px auto;">
+                <div class="modal-content">
+                    <div class="modal-header" style="width: 800px;margin: 0px auto;">
+                        <h2 style="text-align: center;">Statistique</h2>
+                    </div>
+                    <div class="modal-body" style="min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding-top: 50px; color:white;">
+
+                        <div id="bar-chart-1" style="color:black;"></div>
+                        <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" style="margin-top:10px"> Retour</button>
+                    </div>
+                    <!-- .modal-body -->
+                </div>
+                <!-- .modal-content -->
+            </div>
+            <!-- .modal-dialog -->
+        </div>
+        <div class="modal fade" id="parRegion" tabindex="-1" role="dialog" style="width: 800px;margin: 0px auto;">
+            <div class="modal-dialog modal__container" role="document" style="width: 800px;margin: 0px auto;">
+                <div class="modal-content">
+                    <div class="modal-header" style="width: 800px;margin: 0px auto;">
+                        <h2 style="text-align: center;">Statistique</h2>
+                    </div>
+                    <div class="modal-body" style="min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding-top: 50px;">
+                        <select id="statut" ng-model="statut" data-ng-options="statut as statut.designationRegion for statut in listeRegion">
+                            <option value="">Select one </option>
+                        </select>
+                        <button class="btn btn-warning" ng-click="affichageStatByRegion(statut.idRegion)">Afficher Statistique</button>
+
+                        <div class="row">
+                            <div class="col-md-12 grid-margin stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 style="color: #ffff" class="card-title">Region: {{statut.designationRegion}}</h4>
+                                        <div class="table-responsive">
+                                            <table class="table" style="color: #ffff">
+                                                <thead>
+                                                    <tr>
+                                                        <th> # </th>
+                                                        <th> Probleme </th>
+                                                        <th> Pourcentage </th>
+                                                        <th> Progress </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="listes in listeStat">
+                                                        <td> {{listes.idProblemeRegion}} </td>
+                                                        <td> {{listes.designationProbleme}}</td>
+                                                        <td> {{listes.pourcentage}}% </td>
+                                                        <td>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-gradient-success" role="progressbar" style="width: {{listes.pourcentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" style="margin-top:10px"> Retour</button>
+                    </div>
+                    <!-- .modal-body -->
+                </div>
+                <!-- .modal-content -->
+            </div>
+            <!-- .modal-dialog -->
+        </div>
+        <div class="modal fade" id="test" tabindex="-1" role="dialog" style="width: 800px;margin: 0px auto;">
+            <div class="modal-dialog modal__container" role="document" style="width: 800px;margin: 0px auto;">
+                <div class="modal-content">
+                    <div class="modal-header" style="width: 800px;margin: 0px auto;">
+                        <h2 style="text-align: center;">Statistique</h2>
+                    </div>
+                    <div class="modal-body" style="min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding-top: 50px;">
+                        <select id="statut" ng-model="statut" data-ng-options="statut as statut.designationRegion for statut in listeRegion">
+                            <option value="">Select one </option>
+                        </select>
+                        <button class="btn btn-warning" ng-click="chart(statut.designationRegion)">Afficher Statistique</button>
+                        <div id="pie-chart-2" style="color:black;"></div>
+                        <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" style="margin-top:10px"> Retour</button>
+                    </div>
+                    <!-- .modal-body -->
+                </div>
+                <!-- .modal-content -->
+            </div>
+            <!-- .modal-dialog -->
+        </div>
+        <!-- END Modal -->
+    </div>
+</body>
+
+</html>
+<script src="./angular/angular.min.js"></script>
+<script src="./controler/controler.js"></script>
+<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>

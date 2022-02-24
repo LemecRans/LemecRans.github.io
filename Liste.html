@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signalement</title>
+    <script src="./angular/angular.min.js"></script>
+    <script src="ControllerPage/Controller.js"></script> 
+    <link rel="stylesheet" type="text/css" href="./Style/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/vendor/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/vendor/nice-select/css/nice-select.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/vendor/fancybox/css/jquery.fancybox.min.css"> 
+    <link rel="stylesheet" type="text/css" href="./Style/assets/css/virtual.css">
+    <link rel="stylesheet" type="text/css" href="./Style/assets/css/topbar.virtual.css">
+    <link rel="stylesheet" href="assets2/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets2/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets2/css/style.css">
+        
+</head>
+    <body ng-app ng-controller="controlTestLien">
+        <h1 class="display-3">Region: {{region.designationRegion}}</h1>
+        <h1 class="display-3">CoordonneeX: {{region.coordonneX}}</h1>
+        <h1 class="display-3">CoordonneeY: {{region.coordonneY}}</h1> 
+    
+			
+		<div class="row">
+			<div class="col-md-12 grid-margin stretch-card">
+			  <div class="card">
+				<div class="card-body">
+				  <h4 class="card-title">Region: {{region.designationRegion}}</h4>
+				  <div class="table-responsive">
+					<table class="table" >
+					  <thead>
+						<tr>
+						  <th> # </th>
+						  <th> Probleme </th>
+						  <th> Pourcentage </th>
+						  <th> Progress </th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr ng-repeat="listes in listeStat">
+						  <td> {{listes.idProblemeRegion}} </td>
+						  <td> {{listes.designationProbleme}}</td>
+						  <td> {{listes.pourcentage}}%  </td>
+						  <td>
+							<div class="progress">
+							  <div class="progress-bar bg-gradient-success" role="progressbar" style="width: {{listes.pourcentage}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+
+    </body>
+    <script src="assets2/js/jquery.cookie.js" type="text/javascript"></script>
+    <script src="assets2/js/off-canvas.js"></script>
+    <script src="assets2/js/hoverable-collapse.js"></script>
+    <script src="assets2/js/misc.js"></script>
+    <script src="assets2/js/dashboard.js"></script>
+    <script src="assets2/js/todolist.js"></script>
+</html>

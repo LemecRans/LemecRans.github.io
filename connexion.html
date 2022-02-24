@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" ng-app>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Signalement : Admin </title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Modernizr JS -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body >
+<div class="container">
+                <div class="row">
+                    <!-- Start Left Feature -->
+                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <!-- Start Slider Area -->
+                        <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding: 50px; color:white;" ng-controller="signalement">
+                            <h2 style="color:white;">Connexion</h2>
+                            <hr >
+                            <select id="select" ng-model="select" data-ng-options="signal as signal.idsignalement for signal in listeSignalement"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>      
