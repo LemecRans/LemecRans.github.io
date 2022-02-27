@@ -11,7 +11,7 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body style="overflow: hidden;" ng-controller="signalement">
+<body style="overflow: hidden;" ng-controller="region">
     <div class="wrapper fixed__footer">
         <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;color: white;">
             <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px; color:white;">
@@ -19,8 +19,8 @@
                 <hr>
                 <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">liste des Signalements</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="Carte.html">Carte</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="chefRegion.html">Mon profil</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
             </div>
             <div class="container">
@@ -32,20 +32,18 @@
                                 <table class="table">
                                     <thead class="thead-dark">
                                         <tr style="color: white;text-align: center;">
-                                            <th scope="col">id</th>
-                                            <th scope="col">Problème</th>
-                                            <th scope="col">Descrition</th>
-                                            <th scope="col">Region</th>
-                                            <th scope="col">Statut</th>
+                                            <td style="font-style: bold;font-size: 20px;" scope="col">id</td>
+                                            <td style="font-style: bold;font-size: 20px;" scope="col">Problème</td>
+                                            <td style="font-style: bold;font-size: 20px;" scope="col">Descrition</td>
+                                            <td  style="font-style: bold;font-size: 20px;" scope="col">Statut</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="signaux in listeSignalement">
+                                        <tr ng-repeat="signaux in getSignalementRegion">
                                             <th scope="row">{{signaux.idSignalement}}</th>
-                                            <td>{{signal.designationProbleme}}</td>
-                                            <td>{{signal.descriptionProbleme}} </td>
-                                            <td>{{signal.designationRegion}} </td>
-                                            <td>{{signal.designationStatut}}</td>
+                                            <td>{{signaux.designationProbleme}}</td>
+                                            <td>{{signaux.descriptionProbleme}} </td>
+                                            <td>{{signaux.designationStatut}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

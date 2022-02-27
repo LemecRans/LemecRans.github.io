@@ -18,9 +18,8 @@
                 <hr>
                 <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="GUtilisateur.html">Liste Utilisateur</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">Gestion Signalement</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="Region.html">Gestion Region</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Carte.html">Carte</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="chefRegion.html">Mon profil</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
             </div>
             <div class="container">
@@ -37,41 +36,25 @@
 				</div>
 			</section>
 		</div>
-<div id="quickview-wrapper" style="width: 800px;margin: 0px auto;" >
-    <div class="modal fade" id="{{liste.designationRegion}}" style="width: 800px;margin: 0px auto;" ng-repeat="liste in listeRegion">
-        <div class="modal-dialog modal__container" style="width: 800px;margin: 0px auto;">
-            <div class="modal-content" >
-                <div class="modal-header" style="width: 800px;margin: 0px auto;">
-                    <h2 style="text-align: center;">Liste signalement</h2>
-                </div>
-                <div style="min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding-top: 50px;">
-                    <div style="width:300px;float: right;">
-                    	<div style="overflow:scroll ;height: 400px;">
-                            <table class="table" style="width: 400px; float:right">
-                                <thead class="thead-dark">
-                                    <tr style="background-color:#303030;color: white;text-align: center;">
-                                        <th scope="col">Problème</th>
-                                        <th scope="col">Region</th>
-                                        <th scope="col">Statut</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="listeSignal in getSignalementRegion">
-                                        <th scope="row">{{listeSignal.designationProbleme}}</th>
-                                        <td>{{listeSignal.descriptionProbleme}}</td>
-                                        <td>{{listeSignal.statut}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <div id="quickview-wrapper" style="width: 800px;margin: 0px auto;" >
+            <div class="modal fade" id="{{liste.designationRegion}}" style="width: 800px;margin: 0px auto;" ng-repeat="liste in listeRegion">
+                <div class="modal-dialog modal__container" style="width: 800px;margin: 0px auto;">
+                    <div class="modal-content" >
+                        <div class="modal-header" style="width: 800px;margin: 0px auto;">
+                            <h2 style="text-align: center;">Liste signalement</h2>
                         </div>
-	                </div>   
-                   
-                    <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" style="margin-top:200px"> Retour</button>
+                        <div style="min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.9);padding-top: 50px;">
+                            <h2>Problème : {{chefRegion.nom}}</h2>
+                            <h2>Description : {{chefRegion.prenom}}</h2>
+                            <h2>Coordonnées : {{chefRegion.designationRegion}}</h2>
+                            <h2>Auteur : {{chefRegion.designationRegion}}</h2>   
+                           
+                            <button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close" style="margin-top:200px"> Retour</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 </body>
 
 </html>

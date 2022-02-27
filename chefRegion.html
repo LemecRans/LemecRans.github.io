@@ -11,7 +11,7 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body style="overflow: hidden;" ng-controller="listeChefRegion">
+<body style="overflow: hidden;" ng-controller="region">
     <div class="wrapper fixed__footer">
         <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;color: white;">
             <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px; color:white;">
@@ -19,37 +19,20 @@
                 <hr>
                 <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="GUtilisateur.html">Liste Utilisateur</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="GSignalement.html">Gestion Signalement</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="Region.html">Gestion Region</a></h4>
-                <h4 style="margin-bottom: 10%;"><a href="chefRegion.html">Chef Region</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="Carte.html">Carte</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="chefRegion.html">Mon profil</a></h4>
                 <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
                         <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.6);padding: 50px; color:white;">
-                            <h2 style="color:white;">All Chef Region</h2>
+                            <h2 style="color:white;">Mon profil</h2>
                             <hr>
-                            <div style="overflow:scroll; width: 100%; height: 400px;">
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                        <tr style="color: white;text-align: center;">
-                                            <th scope="col">Nom</th>
-                                            <th scope="col">Prenom</th>
-                                            <th scope="col">Region</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr ng-repeat="chefRegion in listeChefRegion">
-                                            <th scope="row">{{chefRegion.nom}}</th>
-                                            <td>{{chefRegion.prenom}}</td>
-                                            <td>{{chefRegion.designationRegion}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <h2>Nom : {{ChefRegion.nom}}</h2>
+                            <h2>Prenom : {{ChefRegion.prenom}}</h2>
+                            <h2>Region : {{ChefRegion.designationRegion}}</h2>
+                            
                         </div>
                     </div>
                 </div>

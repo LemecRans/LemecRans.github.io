@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<link rel="stylesheet" href="app.css">
+	<title>Signalement : Admin </title>
+	<link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body ng-app ng-controller="region" style="background-color:dark;overflow:hidden;">
+    <div class="wrapper fixed__footer">
+        <!-- Start Feature Product -->
+        <section class="categories-slider-area bg__white" style=" background-image:url(about-bg.jpg); background-position: center; height: 800px; width: 100%;">
+            <div style="margin-left: 0px;float: left; width: 20%;min-height: 100%;text-align: center;background-color: rgba(0,0,0,0.9);padding: 5px;">
+                <img src="images/logo/logo.png" width="100%">
+                <hr>
+                <h4 style="margin-bottom: 10%;"><a href="Statistique.html">Statistique</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Recherche.html">Recherche</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="Carte.html">Carte</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="chefRegion.html">Mon profil</a></h4>
+                <h4 style="margin-bottom: 10%;"><a href="index.html">Deconnexion</a></h4>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Start Left Feature -->
+                    <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 float-left-style">
+                        <!-- Start Slider Area -->
+                        <div class="slider__container slider--one" style="margin-top: 80px;margin-left: -50px; min-height: 500px;text-align: center;background-color: rgba(0,0,0,0.6);padding: 50px;font-size: 30px;">
+                        	<h2 style="color:white;margin-top: -20px;">Détail Signalement</h2>
+                            <hr>
+                            <h2>Problème : {{chefRegion.nom}}</h2>
+                            <h2>Description : {{chefRegion.prenom}}</h2>
+                            <h2>Coordonnées : {{chefRegion.designationRegion}}</h2>
+                            <h2>Auteur : {{chefRegion.designationRegion}}</h2>
+                        </div>
+					</div>
+				</div>
+			</section>
+		</div>
+</body>
+
+</html>
+
+<script src="./angular/angular.min.js"></script>
+<script src="./controler/controler.js"></script>
+<script src="js/vendor/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
