@@ -9,21 +9,21 @@ function roughScale(x, base) {
 }
 
 function signalement($scope, $http) {
-    $http.get('http://localhost:9000/listeSignalement')
+    $http.get('https://tri2022.herokuapp.com/listeSignalement')
         .success(function(data) {
             $scope.listeSignalement = data;
         })
-    $http.get('http://localhost:9000/listeRegion')
+    $http.get('https://tri2022.herokuapp.com/listeRegion')
         .success(function(data) {
             $scope.listeRegion = data;
         })
-    $http.get('http://localhost:9000/listeStatut')
+    $http.get('https://tri2022.herokuapp.com/listeStatut')
         .success(function(data) {
             $scope.listeStatut = data;
         })
     $scope.deleteSignalement = function($chiffre) {
         //        console.log("Ato ambony : "+$chiffre);
-        $http.get('http://localhost:9000/deleteSignalement/' + $chiffre)
+        $http.get('https://tri2022.herokuapp.com/deleteSignalement/' + $chiffre)
             .success(function(data) {
                 $scope.deleteSignaux = data;
                 alert('Vofafa lelike😂😂 ');
@@ -32,7 +32,7 @@ function signalement($scope, $http) {
     }
     $scope.listesignalRegion = function() {
         console.log($id);
-	    $http.get('http://localhost:9000/getSignalementRegion/Sofia' )
+	    $http.get('https://tri2022.herokuapp.com/getSignalementRegion/Sofia' )
 	        .success(function(data) {
 	        	$scope.getSignalementRegion = data;   
 	       })
@@ -40,20 +40,20 @@ function signalement($scope, $http) {
 	}
     $scope.listesignalChef = function() {
 		var id = document.getElementById("testid").value;
-	    $http.get('http://localhost:9000/getSignalementByRegion/'+id )
+	    $http.get('https://tri2022.herokuapp.com/getSignalementByRegion/'+id )
 	        .success(function(data) {
 	        	$scope.getSignalementParRegion = data;   
 	       })
     }
     $scope.proche = function($x,$y) {
-        console.log('http://localhost:9000/proche/'+$x+'/'+$y);
+        console.log('https://tri2022.herokuapp.com/proche/'+$x+'/'+$y);
         $http.get('http://localhost:9000/proche/'+$x+'/'+$y )
             .success(function(data) {
                 $scope.proche = data;   
            })
     }
     $scope.affecterSignalement = function($blem) {
-        $http.get('http://localhost:9000/affectationParRegion/'+$blem+'/20' )
+        $http.get('https://tri2022.herokuapp.com/affectationParRegion/'+$blem+'/20' )
             .success(function(data) {
                 alert('Vita le update 😊😊 ');   
            })
@@ -65,14 +65,14 @@ function signalement($scope, $http) {
         var textSelectionner = selectElement.options[selectElement.selectedIndex].text;
         console.log(valeurSelectionner);
         console.log(textSelectionner);
-        $http.get('http://localhost:9000/updateSignalement/' + $chiffre + '/' + valeurSelectionner)
+        $http.get('https://tri2022.herokuapp.com/updateSignalement/' + $chiffre + '/' + valeurSelectionner)
             .success(function(data) {
                 $scope.updateSignaux = data;
                 alert('Vita le update 😊😊 ');
             })
     }
     $scope.updateSignalement = function($chiffre) {
-        $http.get('http://localhost:9000/updateSignalement/' + $chiffre + '/' + valeurSelectionner)
+        $http.get('https://tri2022.herokuapp.com/updateSignalement/' + $chiffre + '/' + valeurSelectionner)
             .success(function(data) {
                 $scope.updateSignaux = data;
                 alert('Vita le update 😊😊 ');
@@ -95,7 +95,7 @@ function region($scope, $http) {
     $scope.connection = function() {
         var loginChef = document.getElementById("loginChef").value;
         var passwordChef = document.getElementById("mdpChef").value;
-        $http.get('http://localhost:9000/valideConnexChef/' + loginChef + '/' + passwordChef)
+        $http.get('https://tri2022.herokuapp.com/valideConnexChef/' + loginChef + '/' + passwordChef)
             .success(function(data) {
                 if (data == 0) {
                     alert("Diso le login eeee 😤😤😤😤😤");
@@ -106,7 +106,7 @@ function region($scope, $http) {
                 }
             })
     }
-    $http.get('http://localhost:9000/getSignalementRegion' )
+    $http.get('https://tri2022.herokuapp.com/getSignalementRegion' )
         .success(function(data) {
             console.log(data);
         $scope.getSignalementRegion = data;
@@ -162,17 +162,17 @@ function region($scope, $http) {
         }
         marker[labe.length-1].closePopup();
     }
-    $http.get('http://localhost:9000/listeRegion')
+    $http.get('https://tri2022.herokuapp.com/listeRegion')
         .success(function(data) {
             $scope.listeRegion = data;
         });
 
-    $http.get('http://localhost:9000/infoChef')
+    $http.get('https://tri2022.herokuapp.com/infoChef')
     .success(function(data) {
         $scope.ChefRegion = data;
         console.log(data);
     });
-    /*$http.get('http://localhost:9000/getSignalementRegion/'+stati )
+    /*$http.get('https://tri2022.herokuapp.com/getSignalementRegion/'+stati )
         .success(function(data) {
         $scope.getSignalementRegion = data;
         stat=$scope.getSignalementRegion;
@@ -238,7 +238,7 @@ function controlStat($scope, $http) {
         }
     }
     $scope.affichageStatistique = function() {
-        $http.get('http://localhost:9000/listeStat')
+        $http.get('https://tri2022.herokuapp.com/listeStat')
             .success(function(data) {
                 $scope.listeStatistique = data;
                 region = $scope.listeStatistique;
@@ -247,19 +247,19 @@ function controlStat($scope, $http) {
             })
     }
     $scope.affichageStatByRegion = function($id) {
-        $http.get('http://localhost:9000/listeliste/' + $id)
+        $http.get('https://tri2022.herokuapp.com/listeliste/' + $id)
             .success(function(data) {
                 $scope.listeStat = data;
             })
     }
 
-    $http.get('http://localhost:9000/listeRegion')
+    $http.get('https://tri2022.herokuapp.com/listeRegion')
         .success(function(data) {
             $scope.listeRegion = data;
         })
 
     $scope.affichageStatByRegion = function($id) {
-        $http.get('http://localhost:9000/listeliste/' + $id)
+        $http.get('https://tri2022.herokuapp.com/listeliste/' + $id)
             .success(function(data) {
                 $scope.listeStat = data;
             })
@@ -270,7 +270,7 @@ function controlStat($scope, $http) {
             $scope.listeRegion = data;
         })
     $scope.chart = function($id) {
-        $http.get('http://localhost:9000/statByStatut/mande/' + $id)
+        $http.get('https://tri2022.herokuapp.com/statByStatut/mande/' + $id)
             .success(function(data) {
                 $scope.listeStatStatut = data;
                 stat = $scope.listeStatStatut;
@@ -327,7 +327,7 @@ function controlStat($scope, $http) {
         chart.render();
     };
     $scope.chart1 = function() {
-        $http.get('http://localhost:9000/listeStat')
+        $http.get('https://tri2022.herokuapp.com/listeStat')
             .success(function(data) {
                 $scope.listeStatistique = data;
                 region = $scope.listeStatistique;
@@ -387,7 +387,7 @@ function controlStat($scope, $http) {
     };
 
     $scope.affichageStatByStatut = function($id) {
-        $http.get('http://localhost:9000/statByStatut/' + $id)
+        $http.get('https://tri2022.herokuapp.com/statByStatut/' + $id)
             .success(function(data) {
                 $scope.listeStatStatut = data;
             })
@@ -395,15 +395,15 @@ function controlStat($scope, $http) {
 }
 
 function controlRecherche($scope, $http) {
-    $http.get('http://localhost:9000/listeRegion')
+    $http.get('https://tri2022.herokuapp.com/listeRegion')
         .success(function(data) {
             $scope.listeRegion = data;
         })
-    $http.get('http://localhost:9000/listeStatut')
+    $http.get('https://tri2022.herokuapp.com/listeStatut')
         .success(function(data) {
             $scope.listeStatut = data;
         })
-    $http.get('http://localhost:9000/lista')
+    $http.get('https://tri2022.herokuapp.com/lista')
         .success(function(data) {
             $scope.listeProb = data;
         })
@@ -412,7 +412,7 @@ function controlRecherche($scope, $http) {
     $scope.resu = false;
     $scope.erreur = false;
     $scope.listeRechercheRegion = function() {
-        $http.get('http://localhost:9000/listeRechercheRegion/' + $scope.recherche)
+        $http.get('https://tri2022.herokuapp.com/listeRechercheRegion/' + $scope.recherche)
             .success(function(data) {
                 $scope.erreur = false;
                 $scope.recherche = "";
@@ -435,8 +435,8 @@ function controlRecherche($scope, $http) {
 
     $scope.listeRechercheProbleme = function() {
         $scope.listeProbleme = [];
-        console.log('http://localhost:9000/listeRechercheProbleme/' + $scope.recherche);
-        $http.get('http://localhost:9000/listeRechercheProbleme/' + $scope.recherche)
+        console.log('https://tri2022.herokuapp.com/listeRechercheProbleme/' + $scope.recherche);
+        $http.get('https://tri2022.herokuapp.com/listeRechercheProbleme/' + $scope.recherche)
             .success(function(data) {
                 $scope.erreur = false;
                 $scope.recherche = "";
@@ -459,7 +459,7 @@ function controlRecherche($scope, $http) {
 
     $scope.listeRechercheProblemeParRegion = function() {
         $scope.listeProbleme = [];
-        $http.get('http://localhost:9000/listeRechercheProblemeParRegion/' + $scope.recherche)
+        $http.get('https://tri2022.herokuapp.com/listeRechercheProblemeParRegion/' + $scope.recherche)
             .success(function(data) {
                 $scope.erreur = false;
                 $scope.recherche = "";
@@ -489,8 +489,8 @@ function controlRecherche($scope, $http) {
         }
         var stat = document.getElementById('stat').options[document.getElementById('stat').selectedIndex].value;
         $scope.listeProbleme = [];
-        console.log('http://localhost:9000/listeRecherchePro/' + blem + '=' + region + '!' + stat);
-        $http.get('http://localhost:9000/listeRecherchePro/' + blem + '=' + region + '!' + stat)
+        console.log('https://tri2022.herokuapp.com/listeRecherchePro/' + blem + '=' + region + '!' + stat);
+        $http.get('https://tri2022.herokuapp.com/listeRecherchePro/' + blem + '=' + region + '!' + stat)
         .success(function(data) {
             $scope.erreur = false;
             $scope.recherche = "";
@@ -516,16 +516,16 @@ function controlRecherche($scope, $http) {
     	
     	if(valuedate2==''){
     		//valuedate2=null;
-            console.log('http://localhost:9000/listeRechercheProblemeParDate/'+valuedate1+'/Now()');
-    		$http.get('http://localhost:9000/listeRechercheProblemeParDate/'+valuedate1+'/Now()' )
+            console.log('https://tri2022.herokuapp.com/listeRechercheProblemeParDate/'+valuedate1+'/Now()');
+    		$http.get('https://tri2022.herokuapp.com/listeRechercheProblemeParDate/'+valuedate1+'/Now()' )
             .success(function(data) {
             	$scope.listeProbleme = data;   
            })
     	}
     	else{
 
-            console.log('http://localhost:9000/listeRechercheProblemeParDate/'+valuedate1+'/'+valuedate2);
-    		$http.get('http://localhost:9000/listeRechercheProblemeParDate/'+valuedate1+'/'+valuedate2 )
+            console.log('https://tri2022.herokuapp.com/listeRechercheProblemeParDate/'+valuedate1+'/'+valuedate2);
+    		$http.get('https://tri2022.herokuapp.com/listeRechercheProblemeParDate/'+valuedate1+'/'+valuedate2 )
             .success(function(data) {
             	$scope.listeProbleme = data;   
            })
@@ -535,14 +535,14 @@ function controlRecherche($scope, $http) {
 }
 
 function utilisateur($scope, $http) {
-    $http.get('http://localhost:9000/listeUtilisateur')
+    $http.get('https://tri2022.herokuapp.com/listeUtilisateur')
         .success(function(data) {
             $scope.listeUtilisateur = data;
         })
 }
 
 function controlUtilisateur($scope, $http) {
-    $http.get('http://localhost:9000/listeUtilisateur')
+    $http.get(https://tri2022.herokuapp.com/listeUtilisateur')
         .success(function(data) {
             $scope.listeUtilisateur = data;
         })
@@ -551,7 +551,7 @@ function controlUtilisateur($scope, $http) {
 function controlDelete($scope, $http) {
     $scope.deleteSignalement = function() {
         // console.log("Ambony "+$idSignalement);
-        $http.get('http://localhost:9000/deleteSignalement')
+        $http.get('https://tri2022.herokuapp.com/deleteSignalement')
             .success(function(data) {
                 // console.log("Ambany "+$idSignalement);
                 $scope.erreur = false;
@@ -578,7 +578,7 @@ function connexAdmin($scope, $http) {
     $scope.connectionAdmin = function() {
         var loginAdmin = document.getElementById("loginAdmin").value;
         var passwordAdmin = document.getElementById("mdpAdmin").value;
-        $http.get('http://localhost:9000/valideConnex/' + loginAdmin + '/' + passwordAdmin)
+        $http.get('https://tri2022.herokuapp.com/valideConnex/' + loginAdmin + '/' + passwordAdmin)
             .success(function(data) {
                 // console.log("Tonga le donnees");
                 // console.log(loginAdmin);
@@ -600,7 +600,7 @@ function connexChef($scope, $http) {
     $scope.connection = function() {
         var loginChef = document.getElementById("loginChef").value;
         var passwordChef = document.getElementById("mdpChef").value;
-        $http.get('http://localhost:9000/valideConnexChef/' + loginChef + '/' + passwordChef)
+        $http.get('https://tri2022.herokuapp.com/valideConnexChef/' + loginChef + '/' + passwordChef)
             .success(function(data) {
                 // console.log("Tonga le donnees");
                 // console.log(loginAdmin);
@@ -622,7 +622,7 @@ function connexChef($scope, $http) {
 /*function getSignaRegion($scope, $http) {
     $scope.signalId = function() {
         var name = document.getElementById("testname").value;
-	    $http.get('http://localhost:9000/getSignalementRegion/'+name )
+	    $http.get('https://tri2022.herokuapp.com/getSignalementRegion/'+name )
 	        .success(function(data) {
 	        	$scope.getSignalementRegion = data;   
 	       })
@@ -632,7 +632,7 @@ function connexChef($scope, $http) {
 /*function connexion($scope,$http){
     $scope.connexion=function($login,$mdp){
         $log=$scope.login+'°'+$scope.mdp;
-        $http.get('http://localhost:9000/login/'+$log);
+        $http.get('https://tri2022.herokuapp.com/login/'+$log);
         .success(function(data){
             $scope.listeutilisateur=data;
         })
