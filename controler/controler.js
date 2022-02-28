@@ -542,7 +542,7 @@ function utilisateur($scope, $http) {
 }
 
 function controlUtilisateur($scope, $http) {
-    $http.get(https://tri2022.herokuapp.com/listeUtilisateur')
+    $http.get('https://tri2022.herokuapp.com/listeUtilisateur')
         .success(function(data) {
             $scope.listeUtilisateur = data;
         })
